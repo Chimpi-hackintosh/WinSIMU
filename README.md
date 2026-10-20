@@ -12,7 +12,8 @@ versão, pois ainda faltam a configuração UEFI e o TPM virtual
 ## Downloads
 
 - [Baixar APK WinSIMU 0.1.0-alpha](https://github.com/Chimpi-hackintosh/WinSIMU/releases/download/v0.1.0-alpha/WinSIMU-0.1.0-alpha.apk)
-- [Baixar os fontes completos](https://github.com/Chimpi-hackintosh/WinSIMU/raw/refs/heads/main/WinSIMU-0.1.0-alpha-source.zip)
+- [Baixar os fontes completos](https://github.com/Chimpi-hackintosh/WinSIMU/releases/download/v0.1.0-alpha/WinSIMU-0.1.0-alpha-source.zip)
+- [Conferir os hashes SHA-256](https://github.com/Chimpi-hackintosh/WinSIMU/releases/download/v0.1.0-alpha/SHA256SUMS.txt)
 
 O APK é uma compilação de desenvolvimento. O ZIP contém o projeto Android,
 as bibliotecas do motor e os fontes das dependências nativas

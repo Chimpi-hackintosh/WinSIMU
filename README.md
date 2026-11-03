@@ -181,3 +181,7 @@ licenças próprios, presentes nos respectivos arquivos-fonte
 - Requisitos do Windows 11: https://learn.microsoft.com/pt-br/windows/whats-new/windows-11-requirements
 
 Este projeto não é um produto da Microsoft e não inclui mídias ou chaves do Windows
+
+## Aviso de suporte
+
+Aviso traduzido, data de 04/11/2026, versões e limites de distribuição em [SUPPORT.md](SUPPORT.md)

@@ -8,9 +8,9 @@ Antes dessa data o aviso informa que o suporte está prestes a terminar — depo
 
 O texto explica o risco de falhas sem afirmar que o usuário ou o aplicativo já foi infectado
 
-| Aplicativo | Versão publicada conferida em 02/11/2026 | Mínima |
+| Aplicativo | Versão publicada conferida em 15/11/2026 | Mínima |
 | --- | --- | --- |
-| WinSIMU | v0.1.0-alpha — prévia | 0.1.0 |
+| WinSIMU | [v0.1.0-alpha](https://github.com/Chimpi-hackintosh/WinSIMU/releases/tag/v0.1.0-alpha) — prévia | 0.1.0-alpha |
 
 ## Comportamento
 
@@ -52,3 +52,6 @@ O script recusa destino existente, caminhos externos e links simbólicos — apl
 Bibliotecas nativas e material de assinatura de desenvolvimento permanecem fora do git, na pasta build-source/ ignorada
 
 O workflow compila um APK de depuração como artefato — não cria Release nem troca a assinatura por uma chave inventada
+
+
+A mínima foi corrigida para `0.1.0-alpha`, correspondendo à tag e à única Release publicada; a versão estável `0.1.0` não foi publicada

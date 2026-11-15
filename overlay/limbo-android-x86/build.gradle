@@ -1,0 +1,48 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'com.limbo.emu.main'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'com.snoopyos.winsimu'
+        minSdk 26
+        // The inherited file manager needs legacy storage. The new wizard uses SAF.
+        targetSdk 29
+        versionCode 1
+        versionName '0.1.0-alpha'
+        ndk { abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64' }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packaging { jniLibs { useLegacyPackaging true } }
+    signingConfigs {
+        debug {
+            storeFile rootProject.file('signing/winsimu-dev.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
+    buildTypes { release { minifyEnabled false } }
+    lint { abortOnError false; disable 'MissingTranslation', 'ExpiredTargetSdkVersion' }
+}
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.22')
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation project(':limbo-android-lib')
+}
+tasks.register('verifyEngine') {
+    doLast {
+        ['arm64-v8a', 'armeabi-v7a', 'x86', 'x86_64'].each { abi ->
+            ['limbo', 'qemu-system-x86_64', 'SDL2'].each { name ->
+                if (!file("src/main/jniLibs/${abi}/lib${name}.so").isFile())
+                    throw new GradleException('Native engine missing. Run python3 scripts/bootstrap_engine.py')
+            }
+        }
+        if (!file('src/main/assets/roms/bios-256k.bin').isFile())
+            throw new GradleException('BIOS missing. Run python3 scripts/bootstrap_engine.py')
+    }
+}
+tasks.named('preBuild').configure { dependsOn 'verifyEngine' }
